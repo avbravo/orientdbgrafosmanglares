@@ -1,0 +1,22 @@
+
+LEER TEORIA DE GRAFOS
+V
+A
+
+ CREATE DATABASE remote:localhost/manglares root denver 
+DROP DATABASE remote:localhost/manglares root denver 
+
+
+select from Mangles
+select from Oceanos
+select from Sombra
+select from Exito
+select from Fracaso
+select from Limites
+select from deforestacion
+
+
+select from Tiene
+select from Cerca
+select from Objetos
+select from Afecta
