@@ -15,7 +15,7 @@ import com.orientechnologies.orient.core.metadata.schema.OType;
  *
  * @author avbravo
  */
-public class FactorEdgeRepository {
+public class FactorEdge {
     public void createSchema(ODatabaseSession db) {
         try {
 

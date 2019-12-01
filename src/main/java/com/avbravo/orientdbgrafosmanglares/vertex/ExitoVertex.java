@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.avbravo.orientdbgrafosmanglares.repository;
+package com.avbravo.orientdbgrafosmanglares.vertex;
 
 import com.orientechnologies.orient.core.db.ODatabaseSession;
 import com.orientechnologies.orient.core.metadata.schema.OClass;
@@ -14,7 +14,7 @@ import com.orientechnologies.orient.core.record.OVertex;
  *
  * @author avbravo
  */
-public class SalinidadRepository {
+public class ExitoVertex {
     public void createSchema(ODatabaseSession db) {
         try {
 
@@ -22,16 +22,16 @@ public class SalinidadRepository {
             /**
              *
              */
-            OClass sombra = db.getClass("Salinidad");
+            OClass sombra = db.getClass("Exito");
 
             if (sombra == null) {
-                sombra = db.createVertexClass("Salinidad");
+                sombra = db.createVertexClass("Exito");
 
             }
 
             if (sombra.getProperty("name") == null) {
                 sombra.createProperty("name", OType.STRING);
-                sombra.createIndex("Salinidad_name_index", OClass.INDEX_TYPE.NOTUNIQUE, "name");
+                sombra.createIndex("Exito_name_index", OClass.INDEX_TYPE.NOTUNIQUE, "name");
             }
 
           
@@ -42,7 +42,7 @@ public class SalinidadRepository {
     }
     
       public OVertex insert(ODatabaseSession db, String name) {
-        OVertex result = db.newVertex("Salinidad");
+        OVertex result = db.newVertex("Exito");
         try {
             result.setProperty("name", name);
             result.save();

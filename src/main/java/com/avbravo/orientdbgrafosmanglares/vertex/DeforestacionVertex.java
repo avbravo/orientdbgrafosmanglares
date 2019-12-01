@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.avbravo.orientdbgrafosmanglares.repository;
+package com.avbravo.orientdbgrafosmanglares.vertex;
 
 import com.orientechnologies.orient.core.db.ODatabaseSession;
 import com.orientechnologies.orient.core.metadata.schema.OClass;
@@ -14,7 +14,7 @@ import com.orientechnologies.orient.core.record.OVertex;
  *
  * @author avbravo
  */
-public class DeforestacionRepository {
+public class DeforestacionVertex {
     public void createSchema(ODatabaseSession db) {
         try {
 

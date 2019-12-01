@@ -15,12 +15,12 @@ import com.orientechnologies.orient.core.metadata.schema.OType;
  *
  * @author avbravo
  */
-public class AfectaEdgeRepository {
+public class LocalizadoEdge {
     public void createSchema(ODatabaseSession db) {
         try {
 
-            if (db.getClass("Afecta") == null) {
-                db.createEdgeClass("Afecta");
+                if (db.getClass("Localizado") == null) {
+                    db.createEdgeClass("Localizado");
             }
 
         } catch (Exception e) {

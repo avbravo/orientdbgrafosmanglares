@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.avbravo.orientdbgrafosmanglares.repository;
+package com.avbravo.orientdbgrafosmanglares.vertex;
 
 import com.orientechnologies.orient.core.db.ODatabaseSession;
 import com.orientechnologies.orient.core.metadata.schema.OClass;
@@ -14,42 +14,42 @@ import com.orientechnologies.orient.core.record.OVertex;
  *
  * @author avbravo
  */
-public class ExitoRepository {
+public class OceanosVertex {
     public void createSchema(ODatabaseSession db) {
         try {
 
-          
+           
             /**
              *
              */
-            OClass sombra = db.getClass("Exito");
+            OClass oceanos = db.getClass("Oceanos");
 
-            if (sombra == null) {
-                sombra = db.createVertexClass("Exito");
+            if (oceanos == null) {
+                oceanos = db.createVertexClass("Oceanos");
 
             }
 
-            if (sombra.getProperty("name") == null) {
-                sombra.createProperty("name", OType.STRING);
-                sombra.createIndex("Exito_name_index", OClass.INDEX_TYPE.NOTUNIQUE, "name");
+            if (oceanos.getProperty("name") == null) {
+                oceanos.createProperty("name", OType.STRING);
+                oceanos.createIndex("Oceanos_name_index", OClass.INDEX_TYPE.NOTUNIQUE, "name");
             }
-
           
-
         } catch (Exception e) {
             System.out.println("createSchema() "+e.getLocalizedMessage());
         }
     }
     
+    
       public OVertex insert(ODatabaseSession db, String name) {
-        OVertex result = db.newVertex("Exito");
+        OVertex result = db.newVertex("Oceanos");
         try {
             result.setProperty("name", name);
             result.save();
         } catch (Exception e) {
-            System.out.println("insert() " + e.getLocalizedMessage());
+            System.out.println("insertOceano(s) " + e.getLocalizedMessage());
         }
         return result;
     }
+
 
 }

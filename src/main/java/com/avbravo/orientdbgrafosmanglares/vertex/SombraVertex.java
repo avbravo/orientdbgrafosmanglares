@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.avbravo.orientdbgrafosmanglares.repository;
+package com.avbravo.orientdbgrafosmanglares.vertex;
 
 import com.orientechnologies.orient.core.db.ODatabaseSession;
 import com.orientechnologies.orient.core.metadata.schema.OClass;
@@ -14,7 +14,7 @@ import com.orientechnologies.orient.core.record.OVertex;
  *
  * @author avbravo
  */
-public class ObjetosRepository {
+public class SombraVertex {
     public void createSchema(ODatabaseSession db) {
         try {
 
@@ -22,16 +22,16 @@ public class ObjetosRepository {
             /**
              *
              */
-            OClass sombra = db.getClass("Objetos");
+            OClass sombra = db.getClass("Sombra");
 
             if (sombra == null) {
-                sombra = db.createVertexClass("Objetos");
+                sombra = db.createVertexClass("Sombra");
 
             }
 
             if (sombra.getProperty("name") == null) {
                 sombra.createProperty("name", OType.STRING);
-                sombra.createIndex("Objetos_name_index", OClass.INDEX_TYPE.NOTUNIQUE, "name");
+                sombra.createIndex("Sombra_name_index", OClass.INDEX_TYPE.NOTUNIQUE, "name");
             }
 
           
@@ -42,12 +42,12 @@ public class ObjetosRepository {
     }
     
       public OVertex insert(ODatabaseSession db, String name) {
-        OVertex result = db.newVertex("Objetos");
+        OVertex result = db.newVertex("Sombra");
         try {
             result.setProperty("name", name);
             result.save();
         } catch (Exception e) {
-            System.out.println("insert() " + e.getLocalizedMessage());
+            System.out.println("insertSombra() " + e.getLocalizedMessage());
         }
         return result;
     }

@@ -6,19 +6,19 @@
 package com.avbravo.orientdbgrafosmanglares;
 
 
-import com.avbravo.orientdbgrafosmanglares.edge.AfectaEdgeRepository;
-import com.avbravo.orientdbgrafosmanglares.edge.FactorEdgeRepository;
-import com.avbravo.orientdbgrafosmanglares.edge.LocalizadoEdgeRepository;
-import com.avbravo.orientdbgrafosmanglares.edge.ProduceEdgeRepository;
-import com.avbravo.orientdbgrafosmanglares.repository.DeforestacionRepository;
-import com.avbravo.orientdbgrafosmanglares.repository.ExitoRepository;
-import com.avbravo.orientdbgrafosmanglares.repository.FracasoRepository;
-import com.avbravo.orientdbgrafosmanglares.repository.LimitesRepository;
-import com.avbravo.orientdbgrafosmanglares.repository.ManglesRepository;
-import com.avbravo.orientdbgrafosmanglares.repository.ObjetosRepository;
-import com.avbravo.orientdbgrafosmanglares.repository.OceanosRepository;
-import com.avbravo.orientdbgrafosmanglares.repository.SalinidadRepository;
-import com.avbravo.orientdbgrafosmanglares.repository.SombraRepository;
+import com.avbravo.orientdbgrafosmanglares.edge.AfectaEdge;
+import com.avbravo.orientdbgrafosmanglares.edge.FactorEdge;
+import com.avbravo.orientdbgrafosmanglares.edge.LocalizadoEdge;
+import com.avbravo.orientdbgrafosmanglares.edge.ProduceEdge;
+import com.avbravo.orientdbgrafosmanglares.vertex.DeforestacionVertex;
+import com.avbravo.orientdbgrafosmanglares.vertex.ExitoVertex;
+import com.avbravo.orientdbgrafosmanglares.vertex.FracasoVertex;
+import com.avbravo.orientdbgrafosmanglares.vertex.LimitesVertex;
+import com.avbravo.orientdbgrafosmanglares.vertex.ManglesVertex;
+import com.avbravo.orientdbgrafosmanglares.vertex.ObjetosVertex;
+import com.avbravo.orientdbgrafosmanglares.vertex.OceanosVertex;
+import com.avbravo.orientdbgrafosmanglares.vertex.SalinidadVertex;
+import com.avbravo.orientdbgrafosmanglares.vertex.SombraVertex;
 import com.orientechnologies.orient.core.db.ODatabaseSession;
 import com.orientechnologies.orient.core.record.OEdge;
 import com.orientechnologies.orient.core.record.OVertex;
@@ -29,27 +29,27 @@ import com.orientechnologies.orient.core.record.OVertex;
  */
 public class MyOrientdb {
 
-    ManglesRepository manglesRepository = new ManglesRepository();
-    OceanosRepository oceanosRepository = new OceanosRepository();
-    SombraRepository sombraRepository = new SombraRepository();
-    ExitoRepository exitoRepository = new ExitoRepository();
-    DeforestacionRepository deforestacionRepository = new DeforestacionRepository();
-    SalinidadRepository salinidadRepository = new SalinidadRepository();
+    ManglesVertex manglesVertex = new ManglesVertex();
+    OceanosVertex oceanosRepository = new OceanosVertex();
+    SombraVertex sombraRepository = new SombraVertex();
+    ExitoVertex exitoRepository = new ExitoVertex();
+    DeforestacionVertex deforestacionRepository = new DeforestacionVertex();
+    SalinidadVertex salinidadRepository = new SalinidadVertex();
 
-    FracasoRepository fracasoRepository = new FracasoRepository();
-    ObjetosRepository objetosRepository = new ObjetosRepository();
-    LimitesRepository limitesRepository = new LimitesRepository();
+    FracasoVertex fracasoRepository = new FracasoVertex();
+    ObjetosVertex objetosRepository = new ObjetosVertex();
+    LimitesVertex limitesRepository = new LimitesVertex();
 
     
-    AfectaEdgeRepository afectaEdgeRepository = new AfectaEdgeRepository();
-    ProduceEdgeRepository produceEdgeRepository = new ProduceEdgeRepository();
-    FactorEdgeRepository factorEdgeRepository = new FactorEdgeRepository();
-    LocalizadoEdgeRepository localizadoEdgeRepository = new LocalizadoEdgeRepository();
+    AfectaEdge afectaEdgeRepository = new AfectaEdge();
+    ProduceEdge produceEdgeRepository = new ProduceEdge();
+    FactorEdge factorEdgeRepository = new FactorEdge();
+    LocalizadoEdge localizadoEdgeRepository = new LocalizadoEdge();
     
 
     public void createSchema(ODatabaseSession db) {
         try {
-            manglesRepository.createSchema(db);
+            manglesVertex.createSchema(db);
             oceanosRepository.createSchema(db);
             sombraRepository.createSchema(db);
             exitoRepository.createSchema(db);
@@ -80,9 +80,9 @@ public class MyOrientdb {
 
             title("   Insertando Mangles");
 
-            OVertex mangleRojo = manglesRepository.insert(db, "Mangle Rojo", "Rhizophora mangle");
-            OVertex mangleBlanco = manglesRepository.insert(db, "Mangle Blanco", "Laguncularia racemosa ");
-            OVertex mangleNegro = manglesRepository.insert(db, "Mangle Negro", "Avicennia germinans");
+            OVertex mangleRojo = manglesVertex.insert(db, "Mangle Rojo", "Rhizophora mangle");
+            OVertex mangleBlanco = manglesVertex.insert(db, "Mangle Blanco", "Laguncularia racemosa ");
+            OVertex mangleNegro = manglesVertex.insert(db, "Mangle Negro", "Avicennia germinans");
 
 //Oceanos
             title("   Insertando Oceanos");
