@@ -30,41 +30,41 @@ import com.orientechnologies.orient.core.record.OVertex;
 public class MyOrientdb {
 
     ManglesVertex manglesVertex = new ManglesVertex();
-    OceanosVertex oceanosRepository = new OceanosVertex();
-    SombraVertex sombraRepository = new SombraVertex();
-    ExitoVertex exitoRepository = new ExitoVertex();
-    DeforestacionVertex deforestacionRepository = new DeforestacionVertex();
-    SalinidadVertex salinidadRepository = new SalinidadVertex();
+    OceanosVertex oceanosVertex = new OceanosVertex();
+    SombraVertex sombraVertex = new SombraVertex();
+    ExitoVertex exitoVertex = new ExitoVertex();
+    DeforestacionVertex deforestacionVertex = new DeforestacionVertex();
+    SalinidadVertex salinidadVertex = new SalinidadVertex();
 
-    FracasoVertex fracasoRepository = new FracasoVertex();
-    ObjetosVertex objetosRepository = new ObjetosVertex();
-    LimitesVertex limitesRepository = new LimitesVertex();
+    FracasoVertex fracasoVertex = new FracasoVertex();
+    ObjetosVertex objetosVertex = new ObjetosVertex();
+    LimitesVertex limitesVertex = new LimitesVertex();
 
     
-    AfectaEdge afectaEdgeRepository = new AfectaEdge();
-    ProduceEdge produceEdgeRepository = new ProduceEdge();
-    FactorEdge factorEdgeRepository = new FactorEdge();
-    LocalizadoEdge localizadoEdgeRepository = new LocalizadoEdge();
+    AfectaEdge afectaEdge = new AfectaEdge();
+    ProduceEdge produceEdge = new ProduceEdge();
+    FactorEdge factorEdge = new FactorEdge();
+    LocalizadoEdge localizadoEdge = new LocalizadoEdge();
     
 
     public void createSchema(ODatabaseSession db) {
         try {
             manglesVertex.createSchema(db);
-            oceanosRepository.createSchema(db);
-            sombraRepository.createSchema(db);
-            exitoRepository.createSchema(db);
-            deforestacionRepository.createSchema(db);
+            oceanosVertex.createSchema(db);
+            sombraVertex.createSchema(db);
+            exitoVertex.createSchema(db);
+            deforestacionVertex.createSchema(db);
 
-            fracasoRepository.createSchema(db);
-            objetosRepository.createSchema(db);
-              limitesRepository.createSchema(db);
-              salinidadRepository.createSchema(db);
+            fracasoVertex.createSchema(db);
+            objetosVertex.createSchema(db);
+              limitesVertex.createSchema(db);
+              salinidadVertex.createSchema(db);
 
 //Edge
-            afectaEdgeRepository.createSchema(db);
-            produceEdgeRepository.createSchema(db);
-            factorEdgeRepository.createSchema(db);
-            localizadoEdgeRepository.createSchema(db);
+            afectaEdge.createSchema(db);
+            produceEdge.createSchema(db);
+            factorEdge.createSchema(db);
+            localizadoEdge.createSchema(db);
             
           
           
@@ -87,45 +87,45 @@ public class MyOrientdb {
 //Oceanos
             title("   Insertando Oceanos");
 
-            OVertex pacifico = oceanosRepository.insert(db, "Pacifico");
-            OVertex atlantico = oceanosRepository.insert(db, "Atlantico");
+            OVertex pacifico = oceanosVertex.insert(db, "Pacifico");
+            OVertex atlantico = oceanosVertex.insert(db, "Atlantico");
 
             //Sombra
             title("   Insertando Sombra");
-            OVertex sombra = sombraRepository.insert(db, "Sombra");
+            OVertex sombra = sombraVertex.insert(db, "Sombra");
             
-            OVertex pocasombra = sombraRepository.insert(db, "Poca Sombra");
+            OVertex pocasombra = sombraVertex.insert(db, "Poca Sombra");
             //Salinidad
             title("   Insertando Salinidad");
-            OVertex salinidad= salinidadRepository.insert(db, "Salinidad 0-65 ups");
+            OVertex salinidad= salinidadVertex.insert(db, "Salinidad 0-65 ups");
             
-            OVertex salinidadBlanco = sombraRepository.insert(db, "Salinidad  (0-80)ups");
+            OVertex salinidadBlanco = sombraVertex.insert(db, "Salinidad  (0-80)ups");
             
             
             
             title("   Insertando Deforestacion");
-            OVertex deforestacion = deforestacionRepository.insert(db, "Deforestacion");
+            OVertex deforestacion = deforestacionVertex.insert(db, "Deforestacion");
             
                        
 
             //Exito
             title("   Insertando exito");
-            OVertex exito = exitoRepository.insert(db, "Exito");
+            OVertex exito = exitoVertex.insert(db, "Exito");
 
             title("   Insertando fracaso");
-            OVertex fracaso = fracasoRepository.insert(db, "Fracaso");
+            OVertex fracaso = fracasoVertex.insert(db, "Fracaso");
 
             title("   Insertando fimites");
-            OVertex limitesTerrestres = limitesRepository.insert(db, "Limites Terrestres");
-            OVertex limitesMarinos = limitesRepository.insert(db, "Limites Marinos");
+            OVertex limitesTerrestres = limitesVertex.insert(db, "Limites Terrestres");
+            OVertex limitesMarinos = limitesVertex.insert(db, "Limites Marinos");
 
             //Objetos
             title("   Insertando objetos");
-            OVertex plantadocerca = objetosRepository.insert(db, "Plantado cerca del mar");
+            OVertex plantadocerca = objetosVertex.insert(db, "Plantado cerca del mar");
            
-            OVertex rutasagua = objetosRepository.insert(db, "Rutas de agua");
-            OVertex subidanivelmar = objetosRepository.insert(db, "Subida nivel mar");          
-            OVertex enfermedadsemillas = objetosRepository.insert(db, "Enfermedad Semillas");
+            OVertex rutasagua = objetosVertex.insert(db, "Rutas de agua");
+            OVertex subidanivelmar = objetosVertex.insert(db, "Subida nivel mar");          
+            OVertex enfermedadsemillas = objetosVertex.insert(db, "Enfermedad Semillas");
 
             /*
             
